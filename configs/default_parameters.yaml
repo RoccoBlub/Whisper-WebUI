@@ -1,11 +1,11 @@
 whisper:
   model_size: "large-v2"
-  file_format: "SRT"
-  lang: "Automatic Detection"
+  file_format: "WebVTT"
+  lang: "dutch"
   is_translate: false
-  beam_size: 5
+  beam_size: 2
   log_prob_threshold: -1
-  no_speech_threshold: 0.6
+  no_speech_threshold: 0.4
   best_of: 5
   patience: 1
   condition_on_previous_text: true
@@ -13,15 +13,15 @@ whisper:
   initial_prompt: null
   temperature: 0
   compression_ratio_threshold: 2.4
-  chunk_length: 30
+  chunk_length: 25
   batch_size: 24
-  length_penalty: 1
+  length_penalty: 1.5
   repetition_penalty: 1
-  no_repeat_ngram_size: 0
+  no_repeat_ngram_size: 2
   prefix: null
   suppress_blank: true
   suppress_tokens: "[-1]"
-  max_initial_timestamp: 1
+  max_initial_timestamp: 1.5
   word_timestamps: false
   prepend_punctuations: "\"'“¿([{-"
   append_punctuations: "\"'.。,，!！?？:：”)]}、"
@@ -34,12 +34,12 @@ whisper:
   enable_offload: true
 
 vad:
-  vad_filter: false
-  threshold: 0.5
+  vad_filter: true
+  threshold: 0.7
   min_speech_duration_ms: 250
   max_speech_duration_s: 9999
-  min_silence_duration_ms: 1000
-  speech_pad_ms: 2000
+  min_silence_duration_ms: 3500
+  speech_pad_ms: 3500
 
 diarization:
   is_diarize: false
@@ -58,7 +58,7 @@ translation:
     api_key: ""
     is_pro: false
     source_lang: "Automatic Detection"
-    target_lang: "English"
+    target_lang: "Netherlands"
   nllb:
     model_size: "facebook/nllb-200-1.3B"
     source_lang: null
